@@ -1,11 +1,11 @@
-package ru.malets_am.my_framework.utilits;
+package ru.malets_am.gravity.utilits;
 
 import android.graphics.Bitmap;
 
 import java.util.List;
 
-public class UtilResourceFW {
+public class UtilResource {
     public static Bitmap textureAtlas;
     public static List<Bitmap> spritePlayer;
-
+    public static List<Bitmap> spritePlayerBoost;
 }

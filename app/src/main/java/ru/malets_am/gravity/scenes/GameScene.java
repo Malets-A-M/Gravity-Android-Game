@@ -3,6 +3,7 @@ package ru.malets_am.gravity.scenes;
 import android.graphics.Color;
 
 import ru.malets_am.gravity.R;
+import ru.malets_am.gravity.classes.GameManager;
 import ru.malets_am.gravity.generators.GeneratorBackGround;
 import ru.malets_am.gravity.objects.Star;
 import ru.malets_am.my_framework.CoreFW;
@@ -15,11 +16,12 @@ public class GameScene extends SceneFW {
     }
 
     GameState gameState;
-    GeneratorBackGround generatorBackGround = new GeneratorBackGround(50, sceneWidth, sceneHeight);
+    GameManager gameManager;
 
     public GameScene(CoreFW coreFW) {
         super(coreFW);
         gameState = GameState.READY;
+        gameManager = new GameManager(coreFW, sceneWidth, sceneHeight);
     }
 
     @Override
@@ -74,10 +76,10 @@ public class GameScene extends SceneFW {
 
     private void drawingStateRunning() {
         graphicsFW.clearScene(Color.BLACK);
-        generatorBackGround.drawing(graphicsFW);
+        gameManager.drawing(coreFW, graphicsFW);
     }
     private void updateStateRunning() {
-        generatorBackGround.update();
+        gameManager.update();
     }
 
     private void drawingStateReady() {
